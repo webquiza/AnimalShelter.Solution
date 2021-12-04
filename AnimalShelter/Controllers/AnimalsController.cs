@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CretaceousPark.Models;
+using AnimalShelter.Models;
 
-namespace CretaceousPark.Controllers
+namespace AnimalShelter.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
   public class AnimalsController : ControllerBase
   {
-    private readonly CretaceousParkContext _db;
+    private readonly AnimalShelterContext _db;
 
-    public AnimalsController(CretaceousParkContext db)
+    public AnimalsController(AnimalShelterContext db)
     {
       _db = db;
     }
