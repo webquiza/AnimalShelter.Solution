@@ -49,10 +49,9 @@ _This API allows users to view animal data. The application has CRUD functionali
 
 ## Swagger and endpoints
 
-* _._
-* _._
-* _._
-* _._
+* _To view Swagger and relevant endpoints, navigate to the following URL: `http://localhost:5000/swagger/index.html`._
+* _In the above URL, you will see the Swagger interface with all endpoints available from Aninal Shelter API._
+* _You can execute GET, POST, PUT and DELETE endpoints through the Swagger interface._
 
 ## Known Bugs
 
