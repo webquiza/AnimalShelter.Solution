@@ -20,31 +20,34 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    // GET: api/Animals
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get(string species, string gender, string name)
+    public async Task<ActionResult<IEnumerable<Animal>>> Get(string name, string species, string gender, int age)
     {
       var query = _db.Animals.AsQueryable();
-
-      if (species != null)
-      {
-        query = query.Where(entry => entry.Species == species);
-      }
-
-      if (gender != null)
-      {
-        query = query.Where(entry => entry.Gender == gender);
-      }    
 
       if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
-      }      
+      }
+
+      if (species != null)
+      {
+        query = query.Where(entry => entry.Species == species);
+      }    
+
+      if (gender != null)
+      {
+        query = query.Where(entry => entry.Gender == gender);
+      }
+
+      if (age != 0)
+      {
+        query = query.Where(entry => entry.Age == age);
+      }       
 
       return await query.ToListAsync();
     }
 
-    // GET: api/Animals/5
     [HttpGet("{id}")]
     public async Task<ActionResult<Animal>> GetAnimal(int id)
     {
@@ -58,8 +61,6 @@ namespace AnimalShelter.Controllers
         return animal;
     }
 
-    // PUT: api/Animals/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
@@ -89,7 +90,6 @@ namespace AnimalShelter.Controllers
       return NoContent();
     }
 
-    // POST: api/Animals
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {
@@ -99,7 +99,6 @@ namespace AnimalShelter.Controllers
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
     }
 
-    // DELETE: api/Animals/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
