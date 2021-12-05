@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace CretaceousPark.Models
+namespace AnimalShelter.Models
 {
-  public class CretaceousParkContext : DbContext
+  public class AnimalShelterContext : DbContext
   {
-    public CretaceousParkContext(DbContextOptions<CretaceousParkContext> options)
+    public AnimalShelterContext(DbContextOptions<AnimalShelterContext> options)
       : base(options)
       {
       }
