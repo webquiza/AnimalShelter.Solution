@@ -4,10 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using CretaceousPark.Models;
+using AnimalShelter.Models;
 
 
-namespace CretaceousPark
+namespace AnimalShelter
 {
     public class Startup
     {
@@ -22,7 +22,7 @@ namespace CretaceousPark
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<CretaceousParkContext>(opt =>
+            services.AddDbContext<AnimalShelterContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers();
             // services.AddEndpointsApiExplorer();
